@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./components/layout/Header";
 import LandingPage from "./pages/LandingPage";
+import EmptyState from "./components//EmptyState";
 
 type ViewMode = "landing" | "app";
 type AppState = "ready" | "processing" | "results";
@@ -60,18 +61,22 @@ function App() {
           </div>
 
           {/* Right Panel (60%) */}
-          <div className="w-3/5 bg-white border border-gray-200 rounded-lg p-6">
-            <h2 className="text-xl font-semibold mb-4">
-              {appState === "ready" && "Ready State"}
-              {appState === "processing" && "Processing State"}
-              {appState === "results" && "Results State"}
-            </h2>
-            <p className="text-gray-600">
-              {appState === "ready" && "Empty state will go here (Phase 2)"}
-              {appState === "processing" &&
-                "Processing animation will go here (Phase 4)"}
-              {appState === "results" && "Results panel will go here (Phase 5)"}
-            </p>
+          <div className="w-3/5 bg-white border border-gray-200 rounded-lg">
+            {appState === "ready" && <EmptyState />}
+            {appState === "processing" && (
+              <div className="p-6">
+                <p className="text-gray-600">
+                  Processing animation will go here (Phase 4)
+                </p>
+              </div>
+            )}
+            {appState === "results" && (
+              <div className="p-6">
+                <p className="text-gray-600">
+                  Results panel will go here (Phase 5)
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </main>
