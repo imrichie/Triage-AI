@@ -8,7 +8,8 @@ Triage AI uses AI to analyze clinical notes and suggest triage priority levels (
 
 ## Tech Stack
 
-- **Frontend:** React.js + Tailwind CSS
+- **Build Tool:** Vite
+- **Frontend:** React.js + Tailwind CSS v4
 - **Backend:** FastAPI + Python
 - **Privacy Layer:** Microsoft Presidio
 - **AI:** OpenAI GPT API
@@ -24,18 +25,29 @@ Triage AI uses AI to analyze clinical notes and suggest triage priority levels (
 ```bash
 cd frontend
 npm install
-npm start
+npm run dev
 ```
+
+Runs on `http://localhost:5173`
 
 ### Backend
 
 ```bash
 cd backend
-source venv/bin/activate
+source back-env/bin/activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
+Or use the convenience script:
+
+```bash
+cd backend
+./run.sh
+```
+
+Runs on `http://localhost:8000`
+
 ## Author
 
-Ricardo - Designer & Developer
+Ricardo - UX Designer & Developer
