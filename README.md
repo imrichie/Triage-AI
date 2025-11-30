@@ -9,7 +9,8 @@ Triage AI uses AI to analyze clinical notes and suggest triage priority levels (
 ## Tech Stack
 
 - **Build Tool:** Vite
-- **Frontend:** React.js + Tailwind CSS v4
+- **Frontend:** React.js + TypeScript + TailwindCSS
+- **Icons:** Lucide React
 - **Backend:** FastAPI + Python
 - **Privacy Layer:** Microsoft Presidio
 - **AI:** OpenAI GPT API
