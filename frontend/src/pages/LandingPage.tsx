@@ -1,6 +1,9 @@
 import { Shield, Brain, Activity, Lock, ChevronRight, Zap } from "lucide-react";
+interface LandingPageProps {
+  onEnterApp: () => void;
+}
 
-export default function LandingPage() {
+export default function LandingPage({ onEnterApp }: LandingPageProps) {
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
@@ -25,7 +28,10 @@ export default function LandingPage() {
             stays protected. HIPAA-compliant intelligence, without compromise.
           </p>
 
-          <button className="group inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white rounded-2xl hover:bg-blue-700 transition-all text-lg shadow-lg hover:shadow-xl transform hover:scale-105">
+          <button
+            onClick={onEnterApp}
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white rounded-2xl hover:bg-blue-700 transition-all text-lg shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
             Launch Application
             <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
@@ -223,7 +229,10 @@ export default function LandingPage() {
           <h2 className="text-4xl md:text-6xl mb-8 text-gray-900">
             Ready to experience privacy-first AI?
           </h2>
-          <button className="group inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white rounded-2xl hover:bg-blue-700 transition-all text-lg shadow-lg hover:shadow-xl transform hover:scale-105">
+          <button
+            onClick={onEnterApp}
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white rounded-2xl hover:bg-blue-700 transition-all text-lg shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
             Launch Application
             <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
