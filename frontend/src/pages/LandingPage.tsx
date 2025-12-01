@@ -6,7 +6,7 @@ interface LandingPageProps {
 export default function LandingPage({ onEnterApp }: LandingPageProps) {
   return (
     <div className="min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
+      <div className="px-6 py-16 md:py-24">
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 mb-8">
