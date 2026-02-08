@@ -8,7 +8,7 @@ type AppState = "ready" | "processing" | "results";
 
 function App() {
   const [viewMode, setViewMode] = useState<ViewMode>("landing");
-  const [appState, _setAppState] = useState<AppState>("ready");
+  const [appState] = useState<AppState>("ready");
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -25,7 +25,7 @@ function App() {
       {/* Main App View */}
       {viewMode === "app" && (
         <>
-          <Header showBackButton onBackClick={() => setViewMode("landing")} />
+          <Header showStatusBadge />
 
           <div className="max-w-[1600px] mx-auto p-6">
             <div className="flex gap-6 h-[calc(100vh-140px)]">
