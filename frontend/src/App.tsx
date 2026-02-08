@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/layout/Header";
 import LandingPage from "./pages/LandingPage";
 import EmptyState from "./components/EmptyState";
@@ -9,15 +9,31 @@ type AppState = "ready" | "processing" | "results";
 function App() {
   const [viewMode, setViewMode] = useState<ViewMode>("landing");
   const [appState] = useState<AppState>("ready");
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
+  const toggleDarkMode = () => setDarkMode((prev) => !prev);
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Landing Page View */}
       {viewMode === "landing" && (
-        <div className="min-h-screen bg-white">
-          <Header />
+        <div className="min-h-screen bg-white dark:bg-gray-800">
+          <Header darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
           <div className="max-w-[1200px] mx-auto">
-            <LandingPage onEnterApp={() => setViewMode("app")} />
+            <LandingPage
+              onEnterApp={() => {
+                setDarkMode(false);
+                setViewMode("app");
+              }}
+            />
           </div>
         </div>
       )}
