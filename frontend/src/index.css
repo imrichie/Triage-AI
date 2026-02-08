@@ -1,3 +1,10 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* Smooth dark mode color transitions */
+*,
+*::before,
+*::after {
+  transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease;
+}
