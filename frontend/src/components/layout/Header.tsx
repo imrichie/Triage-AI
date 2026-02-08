@@ -1,12 +1,18 @@
-import { Shield, Moon } from "lucide-react";
+import { Shield, Moon, Sun } from "lucide-react";
 
 interface HeaderProps {
   showStatusBadge?: boolean;
+  darkMode?: boolean;
+  onToggleDarkMode?: () => void;
 }
 
-export default function Header({ showStatusBadge = false }: HeaderProps) {
+export default function Header({
+  showStatusBadge = false,
+  darkMode = false,
+  onToggleDarkMode,
+}: HeaderProps) {
   return (
-    <header className="bg-white border-b border-gray-200 w-full">
+    <header className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600 w-full">
       <div className="px-6 py-4">
         <div className="flex justify-between items-center">
           {/* Logo and Title */}
@@ -15,10 +21,10 @@ export default function Header({ showStatusBadge = false }: HeaderProps) {
               <Shield className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-base font-normal text-gray-800 leading-6 tracking-tight">
+              <h1 className="text-base font-normal text-gray-800 dark:text-white leading-6 tracking-tight">
                 Triage AI
               </h1>
-              <p className="text-sm font-normal text-gray-500 leading-5">
+              <p className="text-sm font-normal text-gray-500 dark:text-gray-300 leading-5">
                 Privacy-First Clinical Assessment
               </p>
             </div>
@@ -33,8 +39,15 @@ export default function Header({ showStatusBadge = false }: HeaderProps) {
               </span>
             </div>
           ) : (
-            <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-              <Moon className="w-5 h-5 text-gray-600" />
+            <button
+              onClick={onToggleDarkMode}
+              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-300 dark:border-gray-600 rounded-lg transition-colors"
+            >
+              {darkMode ? (
+                <Sun className="w-5 h-5 text-gray-300" />
+              ) : (
+                <Moon className="w-5 h-5 text-gray-600" />
+              )}
             </button>
           )}
         </div>
